@@ -1,5 +1,5 @@
 export const environment = {
   production: false,
-  apiUrl: 'https://consulta-reemplacamiento-ms-sunarp-replacamiento.apps.ocp-noprod.sunarp.gob.pe/api',
+  apiUrl: 'http://localhost:10110/api',
   siteKey : '0x4AAAAAAB76DD3BDlbgNYbl'
 };

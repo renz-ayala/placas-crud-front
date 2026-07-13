@@ -1,5 +1,5 @@
 import {afterNextRender, Component, ElementRef, inject, NgZone, output, signal, viewChild} from '@angular/core';
-import {environment} from '../../../environments/environment';
+import {environment} from '../../../../environments/environment';
 import {NzIconDirective} from 'ng-zorro-antd/icon';
 
 declare global {
@@ -17,7 +17,6 @@ declare global {
   templateUrl: './captcha.html'
 })
 export class Captcha{
-
   tokenSolve = output<string>();
   private readonly captchaContainer = viewChild.required<ElementRef<HTMLDivElement>>('captchaContainer');
   private readonly widgetId = signal<string | null>(null);
@@ -27,7 +26,7 @@ export class Captcha{
 
   constructor() {
     afterNextRender( () => {
-      this.initTurnstile();
+      this.initTurnstile().then( () => console.log('Captcha complete'));
     })
   }
 
@@ -65,22 +64,4 @@ export class Captcha{
       window.turnstile.reset(id);
     }
   }
-
-  // ngOnInit() {
-  //   this.loadTurnstileScript().then( () => {
-  //     this.widgetId.set(window.turnstile.render(this.captchaContainer()?.nativeElement , {
-  //       siteKey: this.siteKey(),
-  //       theme: 'light',
-  //       callback: (token: string) => {
-  //         this.zone.run(() => this.tokenSolve.emit(token) )
-  //       }
-  //     }))
-  //   })
-  // }
-
-  // ngOnChanges() {
-  //   if(window.turnstile && this.widgetId() != null){
-  //     window.turnstile.remove(this.widgetId());
-  //   }
-  // }
 }

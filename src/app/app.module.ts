@@ -10,7 +10,8 @@ import {NzIconDirective, NzIconModule} from 'ng-zorro-antd/icon';
 import { CarOutline, SearchOutline, DownloadOutline, PrinterOutline,
   ReloadOutline, DatabaseOutline } from '@ant-design/icons-angular/icons';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import { Captcha } from './pages/captcha/captcha';
+import { Captcha } from './shared/components/captcha/captcha';
+import { Header } from './shared/components/header/header';
 
 const icons = [ CarOutline, SearchOutline, DownloadOutline, PrinterOutline,
   ReloadOutline, DatabaseOutline ];
@@ -23,7 +24,8 @@ export function apiConfig() {
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    Header
   ],
     imports: [
         BrowserModule,

@@ -1,4 +1,4 @@
-import { Injectable, ElementRef } from '@angular/core';
+import { Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root',
@@ -36,9 +36,17 @@ export class Descarga {
 
     const styleCustom = doc.createElement('style');
     styleCustom.innerHTML = `
-      body { padding: 2cm !important; background: white !important; }
-      @page { margin: 0; }
-      * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+      body {
+        padding: 2cm !important;
+        background: white !important;
+      }
+      @page {
+        margin: 0;
+      }
+      * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
     `;
     doc.head.appendChild(styleCustom);
     doc.body.innerHTML = el.outerHTML;
@@ -61,5 +69,4 @@ export class Descarga {
       }, 800);
     }
   }
-
 }

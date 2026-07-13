@@ -9,7 +9,7 @@ import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzTableModule } from 'ng-zorro-antd/table';
 import { Descarga } from '../../services/descarga';
-import {Captcha} from '../captcha/captcha';
+import {Captcha} from '../../shared/components/captcha/captcha';
 
 @Component({
   selector: 'app-consultar-placa',
@@ -23,10 +23,8 @@ import {Captcha} from '../captcha/captcha';
     Captcha
   ],
   templateUrl: './consultar-placa.component.html',
-  styleUrls: ['./consultar-placa.component.scss']
 })
 export class ConsultarPlacaComponent{
-
   private readonly replaqueoService = inject(PlacaControllerService);
   private readonly fb = inject(FormBuilder);
   private readonly downloadService = inject(Descarga);
@@ -59,7 +57,6 @@ export class ConsultarPlacaComponent{
   }
 
   consultar() {
-
     if(this.form.invalid){
       this.resultado.set('Por favor, ingrese un formato de placa válido.');
       this.error.set(true);
@@ -77,12 +74,9 @@ export class ConsultarPlacaComponent{
     this.replaqueoService.verificar(request).pipe(
       finalize( () => this.isSpinning.set(false)),
       catchError((e: HttpErrorResponse) => {
-        let mensajeError = 'Error inesperado';
-        if (e.status === 0) {
-          mensajeError = 'El servidor no responde';
-        } else {
-          mensajeError = e.error?.response ?? `Error del servidor: ${e.status}`;
-        }
+        let mensajeError = e.status === 0
+          ? 'El servidor no responde'
+          : e.error?.response ?? `Error del servidor: ${e.status}`;
         return throwError(() => new Error(mensajeError) );
       })
     ).subscribe({
@@ -99,7 +93,6 @@ export class ConsultarPlacaComponent{
         }
       }
     )
-
   }
 
   downloadWithMs(){
@@ -124,11 +117,11 @@ export class ConsultarPlacaComponent{
   }
 
   downloadWithNg(){
-    if (this.tableToPrint()) {
-      this.downloadService.printReport(this.tableToPrint()?.nativeElement);
-    } else {
+    if (!this.tableToPrint()) {
       console.warn('La tabla aún no está lista para imprimir');
+      return;
     }
+    this.downloadService.printReport(this.tableToPrint()?.nativeElement);
   }
 
   filtrarInput(event: Event): void {

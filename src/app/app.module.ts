@@ -11,7 +11,7 @@ import { CarOutline, SearchOutline, DownloadOutline, PrinterOutline,
   ReloadOutline, DatabaseOutline } from '@ant-design/icons-angular/icons';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { Captcha } from './shared/components/captcha/captcha';
-import { Header } from './core/layout/header/header';
+import { Header } from './layout/components/header/header';
 
 const icons = [ CarOutline, SearchOutline, DownloadOutline, PrinterOutline,
   ReloadOutline, DatabaseOutline ];

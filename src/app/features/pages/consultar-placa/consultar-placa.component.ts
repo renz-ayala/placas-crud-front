@@ -1,5 +1,5 @@
 import {Component, computed, effect, ElementRef, inject, signal, viewChild} from '@angular/core';
-import { PlacaControllerService, PlacaRequest, PlacaResponse } from '../../api';
+import { PlacaControllerService, PlacaRequest, PlacaResponse } from '../../../api';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { catchError, finalize, throwError } from 'rxjs';
 import { HttpErrorResponse } from '@angular/common/http';
@@ -8,8 +8,8 @@ import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzTableModule } from 'ng-zorro-antd/table';
-import { Descarga } from '../../services/descarga';
-import {Captcha} from '../../shared/components/captcha/captcha';
+import { Descarga } from '../../../core/services/descarga';
+import {Captcha} from '../../../shared/components/captcha/captcha';
 
 @Component({
   selector: 'app-consultar-placa',

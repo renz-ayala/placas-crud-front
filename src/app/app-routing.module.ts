@@ -4,7 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: 'consultar',
-    loadComponent: () => import('./pages/consultar-placa/consultar-placa.component')
+    loadComponent: () => import('./features/pages/consultar-placa/consultar-placa.component')
       .then(m => m.ConsultarPlacaComponent)
   },
   {

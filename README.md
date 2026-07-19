@@ -1,7 +1,27 @@
 # PlacaConsultor
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.1.3.
+Este es un simple crud, donde se busca la información de una placa vehicular y se obtiene un reporte de este en formato PDF.
+Se tiene planeado implementarle un inicio de sesión usando Keycloak en un futuro.
 
+Puedes ver la demo [aquí](https://consulta-de-matriculas.netlify.app/)
+
+Requerimientos:
+- Angular: version 20.1.3.
+
+# Pasos:
+1. ir a la carpeta raíz y abrir consola
+2. ejecutar 
+```bash
+npm i
+```
+3. Este front requiere del backend:
+   Hay 4 versiones subidas:
+   - Java: [placas-crud-back](https://github.com/renz-ayala/placas-crud-back)
+   - C#: [placas-net-back](https://github.com/renz-ayala/placas-net-back)
+   - Typescript: [placas-js-back](https://github.com/renz-ayala/placas-js-back)
+   - Python: [placas-py-back](https://github.com/renz-ayala/placas-py-back)
+
+### Generic readme by angular.
 ## Development server
 
 To start a local development server, run:

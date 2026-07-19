@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
-  apiUrl: 'http://localhost:10110/api',
+  apiUrl: 'https://placas-crud-back.onrender.com/api',
   siteKey : '0x4AAAAAAB76DD3BDlbgNYbl'
 };

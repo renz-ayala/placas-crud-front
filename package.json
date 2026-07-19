@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "local": "ng serve --port 4500",
+    "local": "ng serve --port 4500 --configuration local",
     "desa": "ng serve --port 4500 --configuration development",
     "prod": "ng serve --port 4500 --configuration production",
     "build": "ng build --base-href /consulta-reemplacamiento-ui/",

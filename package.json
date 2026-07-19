@@ -9,7 +9,7 @@
     "prod": "ng serve --port 4500 --configuration production",
     "build": "ng build --base-href /consulta-reemplacamiento-ui/",
     "build:desa": "ng build --base-href /consulta-reemplacamiento-ui/ --configuration development",
-    "build:prod": "ng build --base-href /consulta-reemplacamiento-ui/ --configuration production --output-path=dist/consulta-reemplacamiento-ui",
+    "build:prod": "ng build --configuration production --output-path=dist/consulta-reemplacamiento-ui",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "public": "ng serve --host 0.0.0.0 --port 4600 --configuration development",

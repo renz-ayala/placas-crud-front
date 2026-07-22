@@ -4,7 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { ApiModule, Configuration } from './api';
 import { environment } from '../environments/environment';
-import { provideHttpClient } from '@angular/common/http'
+import {provideHttpClient, withInterceptors} from '@angular/common/http'
 import { AppComponent } from './app.component';
 import {NzIconDirective, NzIconModule} from 'ng-zorro-antd/icon';
 import { CarOutline, SearchOutline, DownloadOutline, PrinterOutline,
@@ -12,6 +12,7 @@ import { CarOutline, SearchOutline, DownloadOutline, PrinterOutline,
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { Captcha } from './shared/components/captcha/captcha';
 import { Header } from './layout/components/header/header';
+import {authInterceptor} from './core/interceptors/auth-interceptor';
 
 const icons = [ CarOutline, SearchOutline, DownloadOutline, PrinterOutline,
   ReloadOutline, DatabaseOutline ];
@@ -36,7 +37,9 @@ export function apiConfig() {
         NzIconDirective
     ],
   providers: [
-    provideHttpClient(),
+    provideHttpClient(
+      withInterceptors([authInterceptor])
+    ),
     provideAnimationsAsync(),
     provideBrowserGlobalErrorListeners(),
     importProvidersFrom(NzIconModule.forRoot(icons)),

@@ -1,9 +1,10 @@
 # PlacaConsultor
 
 Este es un simple crud, donde se busca la información de una placa vehicular y se obtiene un reporte de este en formato PDF.
-Se tiene planeado implementarle un inicio de sesión usando Keycloak en un futuro.
+Se tiene 2 versiones, 1 que es el crud normal. Y otra con la implementacion de keycloak que mejora la seguridad de usuarios, como también añade un SSO en varias aplicaciones.
 
-Puedes ver la demo [aquí](https://consulta-de-matriculas.netlify.app/)
+Demo Normal [aquí](https://consulta-de-matriculas.netlify.app/)
+Demo Keycloak [aquí](https://placasa-keycloak.netlify.app/)
 
 Requerimientos:
 - Angular: version 20.1.3.
